@@ -543,17 +543,32 @@ strong {
     height: 100%;
     margin-block:0px ;
   }
+
+  .nav ul {
+    margin: 0;
+  }
+
+  .nav li{
+    width: 99.5%;
+    padding-inline: 0;
+    /* border: 2px solid rgba(2, 88, 2, 0.802); */
+    box-shadow: 0 0 15px 0  #025216bf inset,
+                0 0 4px 0  green;
+                
+
+  }
+
+
+
+  .nav li a {
+    font-weight: 900;
+    font-size: 1.5rem;
+    
+  }
 }
 
 
 
 
 
-/* .nav {
-    grid-area: nav;
-    display: grid;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
-
-
-  } */
 

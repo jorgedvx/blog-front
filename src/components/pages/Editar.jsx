@@ -1,15 +1,14 @@
 import React, { useEffect } from 'react'
 import { useState } from "react"
 import {useParams} from 'react-router-dom'
-import { useForm } from '../../hooks/useForm'
 import { Peticion } from '../../helpers/Peticion';
 import { Global } from '../../helpers/Global';
+import { SerializeForm } from '../../helpers/SerializeForm';
 
 
 export const Editar = () => {
 
   const [articulo, setArticulos] = useState([]);
-  const { formulario, enviado, cambiado } = useForm({});
   const [resultado, setResultado] = useState("no_enviado")
   const params = useParams();
 
@@ -40,18 +39,15 @@ export const Editar = () => {
   const editarArticulo = async (e) => {
     e.preventDefault();
 
+     //Recoger datos formulario
+    let newDataArticulo = SerializeForm(e.target);
+    delete newDataArticulo.file0
 
-    //Recoger datos formulario
-    let nuevoArticulo = formulario;
+    // console.log(newDataArticulo);
 
-    console.log(formulario)
-
- 
-
-  
 
     // guardar Articulo en el backend
-    const { datos} = await Peticion(Global.url + "articulo/"+params.id, "PUT", nuevoArticulo);
+    const { datos} = await Peticion(Global.url + "articulo/"+params.id, "PUT", newDataArticulo);
 
 
     if (datos.status === "success") {
@@ -108,12 +104,12 @@ export const Editar = () => {
 
         <div className='form-group'>
           <label htmlFor="titulo">Titulo</label>
-          <input type='text' name='titulo' onChange={cambiado} defaultValue={articulo.titulo} />
+          <input type='text' name='titulo'  defaultValue={articulo.titulo} />
         </div>
 
         <div className='form-group'>
           <label htmlFor="contenido">Contenido</label>
-          <textarea type='text' name='contenido' onChange={cambiado} defaultValue={articulo.contenido} />
+          <textarea type='text' name='contenido'  defaultValue={articulo.contenido} />
         </div>
 
         <div className='form-group'>
