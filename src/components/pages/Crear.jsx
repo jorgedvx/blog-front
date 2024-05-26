@@ -8,6 +8,7 @@ export const Crear = () => {
 
   const { formulario, enviado, cambiado } = useForm({});
   const [resultado, setResultado] = useState("no_enviado")
+  const [imageExis, setImageExis] = useState("no_existe")
 
   const guardarArticulo = async (e) => {
     e.preventDefault();
@@ -16,7 +17,7 @@ export const Crear = () => {
     let nuevoArticulo = formulario;
 
     // guardar Articulo en el backend
-    const { datos} = await Peticion(Global.url + "crear", "POST", nuevoArticulo);
+    const { datos } = await Peticion(Global.url + "crear", "POST", nuevoArticulo);
 
     if (datos.status === "success") {
       setResultado("guardado")
@@ -46,10 +47,42 @@ export const Crear = () => {
       }
 
 
-    } 
+    }
 
 
   }
+
+  const changeUploadImage = async (e) => {
+
+    const file = document.getElementById('file');
+    const img = document.getElementById('img');
+
+    const defaultFile = 'https://p4.wallpaperbetter.com/wallpaper/339/752/26/nature-trees-forest-green-wallpaper-preview.jpg';
+
+
+
+
+    if (e.target.files[0]) {
+      const reader = new FileReader()
+      reader.onload = function (e) {
+        img.src = e.target.result;
+
+        setImageExis("si_existe")
+
+
+      }
+
+      reader.readAsDataURL(e.target.files[0])
+
+    }else{
+
+      img.src = defaultFile;
+    }
+
+
+
+  }
+
 
   return (
     <div className='jumbo'>
@@ -77,10 +110,31 @@ export const Crear = () => {
 
         <div className='form-group'>
           <label htmlFor="file0" >Imagen</label>
-          <input type='file' name='image' id='file' />
+
         </div>
 
-        <input type="submit" value="Guardar" className='btn btn-success' />
+        <div className='form-group'>
+          
+        {/* {!imageExis =="si_existe"  && ()} */}
+            <div className='mascara'>
+                <img id='img' src='https://p4.wallpaperbetter.com/wallpaper/339/752/26/nature-trees-forest-green-wallpaper-preview.jpg' />
+            </div>
+
+      
+          
+
+        </div>
+
+        <div className='form-group group-buttom'>
+
+          <input type='file' name='image' id='file' className='fancy-file' onChange={changeUploadImage} />
+
+          <label htmlFor='file'>
+            <span className='fancy-file-one'>Select file</span>
+          </label>
+
+        <input type="submit" value="Guardar" className='btn btn-success btn-success-create' />
+        </div>
 
       </form>
 

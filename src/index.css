@@ -46,7 +46,7 @@ input::file-selector-button {
   background: #62ad56;
   color: white;
   border: 1px solid #fff;
-  padding: 0.98rem;
+  padding: 1rem;
   border-radius: 5px;
   margin-right: 1rem;
 }
@@ -381,6 +381,17 @@ strong {
   text-decoration: none;
 }
 
+.form-group.group-buttom {
+  display: flex;
+  margin-top: 3rem;
+  justify-content: space-around;
+  align-items: center;
+}
+
+input.btn.btn-success.btn-success-create {
+  margin: 0;
+}
+
 @media (max-width: 1085px) {
   .content {
     flex-flow: column wrap;
@@ -565,6 +576,10 @@ strong {
     margin-top: 15px;
   }
 
+  .form-group label {
+    margin-top: 0px;
+  }
+
   .contacto {
     width: 95%;
   }
@@ -601,10 +616,23 @@ strong {
 }
 
 @media (max-width:480px) {
-  span.fancy-file-one{
+  span.fancy-file-one {
     margin: 0;
   }
+
   input.btn.btn-success {
     margin-top: 1.3rem;
+  }
+}
+
+
+@media (max-width:290px) {
+  .form-group.group-buttom {
+    display: flex;
+    flex-direction: column;
+  }
+
+  input.btn.btn-success.btn-success-create {
+    margin-top: 1.5rem;
   }
 }

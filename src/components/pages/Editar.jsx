@@ -75,7 +75,10 @@ export const Editar = () => {
       // console.log(fileInput.files[0])
 
       const formData = new FormData();
+      
       formData.append("image", fileInput.files[0]);
+
+      
 
       // console.log(Global.url + "subir-imagen/" + datos.articulo._id)
       const subida = await Peticion(Global.url + "subir-imagen/" + datos.articulo._id, "POST", formData, true);
@@ -108,14 +111,8 @@ export const Editar = () => {
 
       reader.readAsDataURL(e.target.files[0])
 
-    }else{
-
-      img.src = defaultFile;
     }
 
-    // file.addEventListener('change', e =>{
-    //   console.log(e)
-    // })
 
   }
 
