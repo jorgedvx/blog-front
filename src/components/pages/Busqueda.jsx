@@ -36,7 +36,7 @@ export const Busqueda = () => {
     if (datos.status === "success") {
 
       setArticulos(datos.articulo);
-      console.log(datos.articulo)
+      // console.log(datos.articulo)
     }else{
       setArticulos([]);
     }

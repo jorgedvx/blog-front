@@ -32,11 +32,11 @@ export const Crear = () => {
       setResultado("guardado");
 
       const formData = new FormData();
-      formData.append("file0", fileInput.files[0]);
+      formData.append("image", fileInput.files[0]);
 
       const subida = await Peticion(Global.url + "subir-imagen/" + datos.articulo._id, "POST", formData, true);
 
-      // console.log(subida.datos)
+      console.log(subida.datos)
 
       if (subida.datos.status === "success") {
         setResultado("guardado")
@@ -77,7 +77,7 @@ export const Crear = () => {
 
         <div className='form-group'>
           <label htmlFor="file0" >Imagen</label>
-          <input type='file' name='file0' id='file' />
+          <input type='file' name='image' id='file' />
         </div>
 
         <input type="submit" value="Guardar" className='btn btn-success' />

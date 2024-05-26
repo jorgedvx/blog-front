@@ -25,12 +25,13 @@ export const Listado = ({ articulos, setArticulos }) => {
   return (
 
     articulos.map(articulo => {
+      // {console.log(articulo.image.public_id)}
 
       return (
         <article key={articulo._id} className="articulo-item">
           <div className='mascara'>
-            {articulo.imagen != "defaul.png" && <img src={Global.url + "imagen/" + articulo.imagen} />}
-            {articulo.imagen == "defaul.png" && <img src='https://p4.wallpaperbetter.com/wallpaper/745/67/618/jujutsu-kaisen-anime-boys-anime-hd-wallpaper-preview.jpg' />}
+            {articulo.imagen  != "defaul.png" && <img src={articulo.secure_url} />}
+            {articulo.imagen == "defaul.png" && <img src='https://p4.wallpaperbetter.com/wallpaper/339/752/26/nature-trees-forest-green-wallpaper-preview.jpg' />}
           </div>
           <div className='datos'>
             <h3 className="title" ><Link to={"/articulo/" + articulo._id}>{articulo.titulo}</Link></h3>

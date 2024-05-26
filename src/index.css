@@ -22,6 +22,37 @@ body {
   grid-template-columns: 1fr 1fr 1fr 25%;
 }
 
+input::file-selector-button {
+  background-color: #ddd;
+  font-weight: bold;
+  color: #555;
+  padding: 0.5em;
+  border: none;
+  border-radius: 3px;
+  margin-block: 0 1rem;
+  display: flex;
+
+}
+
+.fancy-file {
+  display: none;
+}
+
+.fancy-file+label {
+  display: flex;
+}
+
+.fancy-file-one {
+  background: #62ad56;
+  color: white;
+  border: 1px solid #fff;
+  padding: 0.98rem;
+  border-radius: 5px;
+  margin-right: 1rem;
+}
+
+
+
 /* Estilos cabecera */
 
 .header {
@@ -153,7 +184,7 @@ body {
 }
 
 
-.articulo-item .datos{
+.articulo-item .datos {
   width: 60%;
 }
 
@@ -361,8 +392,9 @@ strong {
   .articulo-item {
     width: 95%;
   }
-   /*  Center box*/
-  .articulo-item .mascara{
+
+  /*  Center box*/
+  .articulo-item .mascara {
     align-content: center;
   }
 
@@ -425,13 +457,14 @@ strong {
 
 
   }
+
   .form-group {
     width: 70%;
   }
 
   .contacto {
     width: 70%;
-}
+  }
 
 
 }
@@ -488,15 +521,15 @@ strong {
 
   }
 
-  .articulo-item .datos{
+  .articulo-item .datos {
     width: 100%;
   }
 
 
-  .datos{
+  .datos {
     box-sizing: border-box;
     width: 100%;
-    
+
   }
 
   .datos .boton-article {
@@ -504,22 +537,22 @@ strong {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    
+
   }
 
   .datos .edit,
-  .datos .delete{
+  .datos .delete {
     width: max-content;
     padding-inline: 10%;
     margin-right: 0;
   }
 
-  .jumbo .mascara img{
+  .jumbo .mascara img {
     width: 100%;
-  
+
   }
 
-  .jumbo h1{
+  .jumbo h1 {
     margin-block: 10px;
   }
 
@@ -534,27 +567,27 @@ strong {
 
   .contacto {
     width: 95%;
- }
+  }
 
 }
 
 @media (max-width:480px) {
   .form-group .mascara {
     height: 100%;
-    margin-block:0px ;
+    margin-block: 0px;
   }
 
   .nav ul {
     margin: 0;
   }
 
-  .nav li{
+  .nav li {
     width: 99.5%;
     padding-inline: 0;
     /* border: 2px solid rgba(2, 88, 2, 0.802); */
-    box-shadow: 0 0 15px 0  #025216bf inset,
-                0 0 4px 0  green;
-                
+    box-shadow: 0 0 15px 0 #025216bf inset,
+      0 0 4px 0 green;
+
 
   }
 
@@ -563,12 +596,15 @@ strong {
   .nav li a {
     font-weight: 900;
     font-size: 1.5rem;
-    
+
   }
 }
 
-
-
-
-
-
+@media (max-width:480px) {
+  span.fancy-file-one{
+    margin: 0;
+  }
+  input.btn.btn-success {
+    margin-top: 1.3rem;
+  }
+}

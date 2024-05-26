@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import { useParams } from "react-router-dom"
 import { Global } from '../../helpers/Global'
 import { Peticion } from '../../helpers/Peticion'
-import { Listado } from './Listado'
+
 
 export const Articulo = () => {
 
@@ -41,7 +41,7 @@ export const Articulo = () => {
       {cargando ? "Cargando..." :
         <>
           <div className='mascara'>
-            {articulo.imagen != "defaul.png" && <img src={Global.url + "imagen/" + articulo.imagen} />}
+            {articulo.imagen != "defaul.png" && <img src={articulo.secure_url }/>}
             {articulo.imagen == "defaul.png" && <img src='https://p4.wallpaperbetter.com/wallpaper/745/67/618/jujutsu-kaisen-anime-boys-anime-hd-wallpaper-preview.jpg' />}
           </div>
           <h1>{articulo.titulo}</h1>
